@@ -31,3 +31,24 @@
     padding: 5px;
     margin: 25px;
 }
+/* navbar*/
+.navbar{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border-bottom: 2px solid #f2f2f2;
+    
+}
+.navbar .links{
+    margin-left: auto;
+}
+.navbar a{
+    margin-left:16px;
+    text-decoration: none;
+    padding: 6px;
+}
+.navbar a:hover{
+    color:#7c75f8;
+}

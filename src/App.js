@@ -1,8 +1,9 @@
+import Navbar from "./components/Navbar";
 import Post from "./components/Post";
 function App() {
   return (
     <div>
-      <h1>Stranger's Things</h1>
+      <Navbar />
       <Post />
     </div>
 
