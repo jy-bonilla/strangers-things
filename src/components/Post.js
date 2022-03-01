@@ -1,6 +1,5 @@
-import { getValue } from "@testing-library/user-event/dist/utils";
 import React, { useEffect, useState } from "react";
-import ReactDom from 'react-dom';
+
 
 const Post = () => {
     const [posts, setPosts] = useState([]);
@@ -24,9 +23,9 @@ const Post = () => {
                 <div className="post" key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
-                    <p className="post-descripton">Price: {post.price}</p>
-                    <p className="post-descripton">Seller: {post.author.username} </p>
-                    <p className="post-descripton">Location: {post.location} </p>
+                    <p className="post-price">Price: {post.price}</p>
+                    <p className="post-seller">Seller: {post.author.username} </p>
+                    <p className="post-location">Location: {post.location} </p>
 
                 </div>
             ))}

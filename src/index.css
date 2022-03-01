@@ -43,6 +43,8 @@
 }
 .navbar .links{
     margin-left: auto;
+    font-size: small;
+    
 }
 .navbar a{
     margin-left:16px;
