@@ -42,9 +42,9 @@ const Register = () => {
 
 
     return (
-        <div id='container'>
-            <div id='navbar'>
-                Form
+        <div className="navbar-container" id='container'>
+            <div className="navbar-register" id='navbar'>
+                <h2>Register New Account</h2>
             </div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username'>Username:</label>

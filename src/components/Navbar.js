@@ -1,14 +1,14 @@
-import react from "react";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <nav className="navbar">
             <h1>Stanger's Things</h1>
             <div className="links">
-                <a href="/">HOME</a>
-                <a href="/Post">POSTS</a>
+                <Link to="/">HOME</Link>
+                <Link to="/Post">POST</Link>
                 {/* <a href="/Login">LOGIN</a> */}
-                <a href="/Register">REGISTER</a>
+                <Link to="/Register">REGISTER</Link>
             </div>
         </nav>
     );

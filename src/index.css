@@ -54,3 +54,40 @@
 .navbar a:hover{
     color:#7c75f8;
 }
+
+
+/* form css */
+.navbar-container{
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px;
+    
+}
+
+.navbar-register h2{
+    font-size: 20px;
+    color: #635afe;
+    margin-bottom: 30px;
+}
+
+.navbar-container label{
+    text-align: left;
+    display: block;
+}
+
+.navbar-container input, .navbar-container textarea, .navbar-container select{
+    width: 100%;
+    padding: 6px 10 px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+}
+
+.navbar-container button{
+background: #7c75f8;
+color: #f2f2f2;
+border-radius: 8px;
+cursor: pointer;
+}
