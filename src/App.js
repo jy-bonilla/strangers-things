@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import Home from './components/Home';
 import Post from "./components/Post";
+import Login from './components/Login';
 import Register from "./components/Register";
 
 
@@ -18,6 +19,9 @@ function App() {
             </Route>
             <Route path="/Post">
               <Post />
+            </Route>
+            <Route path="/Login">
+              <Login />
             </Route>
             <Route path="/Register">
               <Register />

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from 'react-dom';
+import React, { useState } from "react";
+
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -7,39 +7,43 @@ const Register = () => {
     const [passwordCon, setPasswordCon] = useState('');
 
     const handleSubmit = (event) => {
+
+        //prevents page from being submitted
         event.preventDefault()
-        console.log('username: ', username);
-        console.log('password: ', password);
-        console.log('passwordCon:', passwordCon)
-        setUsername('');
-        setPassword('');
-        setPasswordCon('')
+        // console.log('username: ', username);
+        // console.log('password: ', password);
+        // console.log('passwordCon:', passwordCon)
+
+        //checks to make sure password and passwordConfirmation match => fetch call else deny fetch call
+        if (password !== passwordCon) {
+            alert("Passwords don't match!");
+        } else {
+
+
+            //Register a user by submitting form info to POST /api/COHORT-NAME/users/register
+
+            fetch('https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/users/register', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: {
+                        username: username,
+                        password: password
+                    }
+                })
+            }).then(response => response.json())
+                .then(result => {
+                    console.log(result);
+                    //saves the token from the api to a const and saves it on localStorage
+                    const { token } = result.data;
+                    localStorage.setItem('token', token);
+
+                })
+                .catch(console.error);
+        }
     }
-
-    const handleChange = (event) => {
-        setUsername(event.target.value);
-    }
-    //Register a user by submitting form info to POST /api/COHORT-NAME/users/register
-    // fetch('https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/users/register', {
-    //     method: "POST",
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         user: {
-    //             username: username,
-    //             password: password
-    //         }
-    //     })
-    // }).then(response => response.json())
-    //     .then(result => {
-    //         console.log(result);
-    //     })
-    //     .catch(console.error);
-
-
-
-
 
     return (
         <div className="navbar-container" id='container'>
@@ -48,11 +52,11 @@ const Register = () => {
             </div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username'>Username:</label>
-                <input type='text' name='username' value={username} onChange={handleChange} />
+                <input type='text' required name='username' value={username} onChange={(event) => setUsername(event.target.value)} />
                 <label htmlFor='password'>Password:</label>
-                <input type='password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
+                <input type='password' required minLength='4' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
                 <label htmlFor='password-confirm'>Confirm Password:</label>
-                <input type='password' name='password-confirm' value={password} onChange={(event) => setPasswordCon(event.target.value)} />
+                <input type='password' required minLength='4' name='password-confirm' value={passwordCon} onChange={(event) => setPasswordCon(event.target.value)} />
                 <button type='submit'>Submit</button>
             </form>
         </div>
