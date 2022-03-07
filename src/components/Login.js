@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -35,15 +36,16 @@ const Login = () => {
     return (
         <div className="navbar-container" id='container'>
             <div className="navbar-register" id='navbar'>
-                <h2>LOGIN</h2>
+                <h2>LOG IN</h2>
             </div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username'>Username:</label>
                 <input type='text' required name='username' value={username} onChange={(event) => setUsername(event.target.value)} />
                 <label htmlFor='password'>Password:</label>
                 <input type='password' required minLength='4' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
-                <button type='submit'>Submit</button>
+                <button type='submit'>Log In</button>
             </form>
+            <Link to="/Register">Don't have an account yet? Register today!</Link>
         </div>
     )
 }
