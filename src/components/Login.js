@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const Login = () => {
+const Login = (props) => {
+    const setLogedIn = props.setLogedIn
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
 
         //prevents page from being submitted
         event.preventDefault()
@@ -15,7 +16,7 @@ const Login = () => {
 
         //Register a user by submitting form info to POST /api/COHORT-NAME/users/register
 
-        fetch('https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/users/login', {
+        await fetch('https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/users/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -27,10 +28,15 @@ const Login = () => {
                 }
             })
         }).then(response => response.json())
-            .then(result => {
-                console.log(result);
-            })
-            .catch(console.error);
+            .then(results => {
+                console.log(results);
+                localStorage.setItem("token", results.data.token)
+                alert(results.data.message)
+                if (results) {
+                    setLogedIn(true)
+                }
+            }).catch(console.error);
+
     }
 
     return (

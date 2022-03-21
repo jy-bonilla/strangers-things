@@ -39,7 +39,7 @@ const Register = () => {
                     //saves the token from the api to a const and saves it on localStorage
                     const { token } = result.data;
                     localStorage.setItem('token', token);
-
+                    alert(result.data.message)
                 })
                 .catch(console.error);
         }

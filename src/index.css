@@ -11,6 +11,39 @@
       display: flex;
       justify-content: center;
   }
+/*posts-search*/
+.posts-search{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border-bottom: 2px solid #f2f2f2;
+}
+.posts-search h2{
+    color: #635afe;
+}
+/* Create New Post*/
+.NewPost{
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.NewPost label{
+    text-align: left;
+    display: block;
+}
+
+.NewPost input, .NewPost textarea, .NewPost select{
+    width: 100%;
+    padding: 6px;
+    margin: 10px 0;
+    border: 1px solid white;
+    box-sizing: boder-box;
+    display: block;
+
+}
+
 
 /* posts preview*/
 .posts-list{
@@ -39,7 +72,6 @@
     max-width: 600px;
     margin: 0 auto;
     border-bottom: 2px solid #f2f2f2;
-    
 }
 .navbar .links{
     margin-left: auto;
@@ -91,4 +123,49 @@ background: #7c75f8;
 color: #f2f2f2;
 border-radius: 8px;
 cursor: pointer;
+}
+
+/*Profile css*/
+
+.profile input, .profile textarea, .profile select{
+    width: 100%;
+    padding: 6px 10 px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+}
+.profile {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.profile label {
+    text-align: left;
+    display: block;
+}
+.profile h2 {
+    font-size: 20px;
+    color: #7c75f8;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.profile button {
+    background: #7c75f8;
+color: #f2f2f2;
+border-radius: 8px;
+cursor: pointer;
+}
+/*Post options navbar*/
+.postOptions{
+    display: flex;
+    justify-content: space-between;
+}
+.postOptions a {
+    margin-left:auto;
+    font-size: medium;
+    text-decoration: none;
+}
+.postOptions a:hover{
+    color:#7c75f8;
 }
