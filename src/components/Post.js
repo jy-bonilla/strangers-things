@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import DeletePost from "./DeletePost";
+import EditPost from "./EditPost";
 import { Link } from "react-router-dom";
 
 
-const Post = () => {
+const Post = (props) => {
     const [posts, setPosts] = useState([]);
-    console.log(posts.id)
+    // const setLogedIn = props.setLogedIn
+    console.log('posts:', posts)
+    console.log("id:", posts.location)
+
 
     useEffect(() => {
         fetch('https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/posts')
             .then((response) => response.json())
             .then(({ data }) => {
-                console.log('data:', data.post)
+                console.log('data:', data)
                 // console.log('dataId', data.location)
                 setPosts(data.posts)
 
@@ -36,7 +40,9 @@ const Post = () => {
                     <p className="post-price">Price: {post.price}</p>
                     <p className="post-seller">Seller: {post.author.username} </p>
                     <p className="post-location">Location: {post.location} </p>
-                    <DeletePost id={posts.id} />
+
+                    {<EditPost id={post._id} />}{<DeletePost id={post._id} />}
+
 
                 </div>
             ))}

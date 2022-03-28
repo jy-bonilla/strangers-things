@@ -62,10 +62,10 @@ const PostMatches = () => {
     const handleChange = (event) => {
         setSearchTerm(event.target.value)
     }
-    useEffect(() => {
-        const results = Posts.filter(post => post.toLowerCase().includes(searchTerm))
-        // setSearchResult(results)
-    }, [searchTerm])
+    // useEffect(() => {
+    //     const results = Posts.filter(post => post.toLowerCase().includes(searchTerm))
+    //     // setSearchResult(results)
+    // }, [searchTerm])
     return (
         <div className="postSearch">
             <input type="text" placeholder="Search..." value={searchTerm} onChange={handleChange} />

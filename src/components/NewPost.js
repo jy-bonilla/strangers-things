@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const NewPost = () => {
     const [title, setTitle] = useState('');
@@ -11,7 +11,7 @@ const NewPost = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const post = { title, body, price };
+        // const post = { title, body, price };
 
         await fetch('https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/posts', {
             method: "POST",
@@ -30,6 +30,9 @@ const NewPost = () => {
         }).then(response => response.json())
             .then(result => {
                 console.log(result);
+                if (result.success === true) {
+                    alert('Your new post has been created')
+                }
             })
             .catch(console.error);
         console.log('gettoken:', localStorage.getItem('token'))

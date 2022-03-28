@@ -1,24 +1,37 @@
 import React from "react"
+// import { useHistory } from "react-router-dom"
 
 
 const DeletePost = (props) => {
-    const { id } = props
-    const handleDeletePost = async (event) => {
-        event.preventDefault()
-        await fetch(`https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/posts/${id}`, {
+
+    const postId = props.id
+    const bearer = 'Bearer ' + localStorage.getItem("token")
+    // console.log('postId!!', postId)
+    console.log('bearer:', bearer)
+    const handleDeletePost = async () => {
+
+        await fetch(`https://strangers-things.herokuapp.com/api/2110-vpi-web-pt-resources/posts/${postId}`, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer' + localStorage.getItem("token")
+                'Authorization': bearer
             }
-        }).then(response => response.json())
-            .then(result => {
-                console.log(result);
-            })
-            .catch(console.error);
+        }).then((response) => response.json())
+            .then((result) => {
+                console.log('result.success:', result.success);
+                if (result.success === true) {
+                    alert('Your post has been deleted. Please refresh the page to see changes.')
+                } else {
+                    alert('You do not have the rights to delete this post.')
+                }
+
+            }).catch(console.error);
+
+
     }
+
     return (
-        <div>
+        <div className="deletePostButton">
             <button onClick={handleDeletePost}>Delete</button>
         </div>
     )
