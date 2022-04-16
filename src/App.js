@@ -11,6 +11,7 @@ import NewPost from './components/NewPost';
 
 
 
+
 function App() {
   const [logedIn, setLogedIn] = useState(false)
 

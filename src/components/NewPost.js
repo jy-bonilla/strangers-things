@@ -40,7 +40,7 @@ const NewPost = () => {
 
     return (
         <div className="NewPost">
-            <h2>Add New Post</h2>
+            <h3>Create New Post</h3>
             <form onSubmit={handleSubmit}>
                 <label>Post Title:</label>
                 <input type="text" required value={title}

@@ -42,7 +42,7 @@ const Login = (props) => {
     return (
         <div className="navbar-container" id='container'>
             <div className="navbar-register" id='navbar'>
-                <h2>LOG IN</h2>
+                <h3>LOG IN</h3>
             </div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username'>Username:</label>

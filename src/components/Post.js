@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 
 const Post = (props) => {
     const [posts, setPosts] = useState([]);
+    // const [edit, setEdit] = useState(null);
+    // const [editTitle, setEditTitle] = useState("");
     // const setLogedIn = props.setLogedIn
-    console.log('posts:', posts)
+    console.log('posts:', posts._id)
     console.log("id:", posts.location)
+    // console.log("editTitle:", editTitle)
+    // console.log("edit:", edit)
 
 
     useEffect(() => {
@@ -40,8 +44,9 @@ const Post = (props) => {
                     <p className="post-price">Price: {post.price}</p>
                     <p className="post-seller">Seller: {post.author.username} </p>
                     <p className="post-location">Location: {post.location} </p>
-
-                    {<EditPost id={post._id} />}{<DeletePost id={post._id} />}
+                    {/* <button onClick={() => setEdit(post._id)}>Edit</button> */}
+                    {<DeletePost id={post._id} />}
+                    {<EditPost id={post._id} />}
 
 
                 </div>
